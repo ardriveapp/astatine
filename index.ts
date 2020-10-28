@@ -1,5 +1,5 @@
 import Transaction from 'arweave/node/lib/transaction';
-import config from './config';
+import config, { AstatineItem } from './config';
 
 const Arweave = require('arweave');
 const fs = require('fs');
@@ -10,7 +10,7 @@ export interface config {
   initial_emit_amount: number;
   decay_const: number;
   token_contract_id: string;
-  token_allocations: string[] | { address: string; weight: number }[];
+  token_allocations: string[] | Promise<AstatineItem[]>;
 }
 
 interface status {
@@ -141,7 +141,7 @@ async function emit(transactions: any) {
     console.log({ time, expend, balance: status.balance });
 
     // create transactions to send
-    let transactions = await primeCannon(expend, config.token_allocations, time);
+    let transactions = await primeCannon(expend, await config.token_allocations, time);
     // send the transactions
     let sentTransactions = await emit(transactions);
 
