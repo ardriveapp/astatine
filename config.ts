@@ -144,7 +144,7 @@ const config: config = {
   emission_period: 1209600, // E
   time_interval: 86400, // I
   initial_emit_amount: 140, // A
-  decay_const: 0, // k
+  decay_const: undefined,
   token_contract_id,
   token_allocations: token_allocation_function(),
 };
