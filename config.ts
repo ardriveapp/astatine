@@ -22,7 +22,7 @@ const token_allocation_function = async() : Promise<AstatineItem[]> => {
   weightedList = await get_24_hour_ardrive_transactions();
 
   // Only return the first 20
-  return weightedList.slice(0, 19);
+  return weightedList.slice(0, 99);
 }
 
 function dataCompare(a: any, b: any) {
