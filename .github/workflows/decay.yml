@@ -3,7 +3,7 @@ name: decay
 on:
   workflow_dispatch: # manual trigger
   # schedule:
-  #   - cron: '0 20 * * *'
+  #   - cron: '30 22 * * *'
 
 jobs:
   decay:
