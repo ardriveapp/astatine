@@ -1,8 +1,7 @@
-name: decay
-
+name: "decay"
 on:
   schedule:
-    - cron: "35 16 * * *"
+  - cron: "45 16 * * *"
 
 jobs:
   decay:
