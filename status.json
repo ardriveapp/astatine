@@ -1,6 +1,6 @@
 {
   "time_init": 1604686965772,
-  "balance": 8061,
+  "balance": 4835,
   "distributions": [
     {
       "run": 1,
@@ -363,6 +363,17 @@
         "sXVwNYY0qhR7CBtW0lbJYIgCKVLMJiwPy_owG-nZoZs",
         "tXMmJpAATPbNPASIUeefOuTGcXhaRaWgatxO7bmU5Ps",
         "LVtbdXaYizEZgaYo8l8Xco7dh_MBcidoCnJ-IMihOac"
+      ]
+    },
+    {
+      "run": 22,
+      "time": 1728000,
+      "expend": 3226,
+      "transactions": [
+        "rNoQji3vd71b662k3NJmHNhqGHs0_CyBuuVAM0UMf6I",
+        "icvNPNi0UOb-yZYMCVDr0vtZ6mtL4TafMFWEMenYx3A",
+        "ZQxyJLy5ZJhC-NRaXI1Gz9gOCqcxuh8mp72rNpd15Tk",
+        "ho5SgR2wu_qTu99D5LooUCBOpyVKME-467153E9HF_s"
       ]
     }
   ]
