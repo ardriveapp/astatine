@@ -84,39 +84,37 @@ async function primeCannon(amount: number, addresses: any, time: number) {
 
   let allTransactions = [];
   for (let i = 0; i < addresses.length; i++) {
-    // If the quantity is not 0, then we can continue to create the transaction
-    if ((addresses[i].weight ? Math.floor((amount * addresses[i].weight) / weightTotal) : Math.floor(amount / addresses.length)) !== 0) {
-      const tags = {
-        Cannon: 'PST',
-        Function: dist_curve,
-        Completion: (time / config.emission_period) * 100,
-        Contract: config.token_contract_id,
-        'App-Name': 'SmartWeaveAction',
-        'App-Version': '0.3.0',
-        Input: JSON.stringify({
-          function: 'transfer',
-          target: addresses[i].address ?? addresses[i],
-          qty: addresses[i].weight ? Math.floor((amount * addresses[i].weight) / weightTotal) : Math.floor(amount / addresses.length),
-        }),
-      };
+    const tags = {
+      Cannon: 'PST',
+      Function: dist_curve,
+      Completion: (time / config.emission_period) * 100,
+      Contract: config.token_contract_id,
+      'App-Name': 'SmartWeaveAction',
+      'App-Version': '0.3.0',
+      Input: JSON.stringify({
+        function: 'transfer',
+        target: addresses[i].address ?? addresses[i],
+        qty: addresses[i].weight ? Math.floor((amount * addresses[i].weight) / weightTotal) : Math.floor(amount / addresses.length),
+      }),
+    };
 
-      const tx: Transaction = await arweave.createTransaction(
-        {
-          target: addresses[i].address ?? addresses[i],
-          data: Math.random().toString().slice(-4),
-        },
-        keyfile
-      );
+    const tx: Transaction = await arweave.createTransaction(
+      {
+        target: addresses[i].address ?? addresses[i],
+        data: Math.random().toString().slice(-4),
+      },
+      keyfile
+    );
 
-      for (const [key, value] of Object.entries(tags)) {
-        tx.addTag(key, value.toString());
-      }
-
-      await arweave.transactions.sign(tx, keyfile);
-      allTransactions.push(tx);
+    for (const [key, value] of Object.entries(tags)) {
+      tx.addTag(key, value.toString());
     }
-    return allTransactions;
+
+    await arweave.transactions.sign(tx, keyfile);
+    allTransactions.push(tx);
   }
+
+  return allTransactions;
 }
 
 /**
