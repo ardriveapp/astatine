@@ -142,7 +142,7 @@ async function emit(allTransactions: AstatineTx[]) {
   let sentTransactions : AstatineTx[] = [];
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
-      // await arweave.transactions.post(allTransactions[i].id);
+      await arweave.transactions.post(allTransactions[i].id);
       sentTransactions.push(allTransactions[i]);
     }
   }
