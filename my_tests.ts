@@ -1,33 +1,32 @@
+import config, { AstatineItem, token_allocation_function } from './config';
 import Transaction from 'arweave/node/lib/transaction';
-import config, { AstatineItem } from './config';
+
+export interface config {
+emission_period: number;
+time_interval: number;
+initial_emit_amount: number;
+decay_const: number;
+token_contract_id: string;
+token_allocations: string[] | Promise<AstatineItem[]>;
+}
+  
+interface status {
+time_init: number;
+balance: number;
+distributions: { run: number; time: number; expend: number; transactions: AstatineTx[] }[];
+}
+
+interface AstatineTx {
+    id: string;
+    target: string;
+    qty: number;
+    dataUploaded: number;
+}
 
 const Arweave = require('arweave');
 const fs = require('fs');
 
-export interface config {
-  emission_period: number;
-  time_interval: number;
-  initial_emit_amount: number;
-  decay_const: number;
-  token_contract_id: string;
-  token_allocations: string[] | Promise<AstatineItem[]>;
-}
-
-interface AstatineTx {
-  id: string;
-  target: string;
-  qty: number;
-  dataUploaded: number;
-}
-
-interface status {
-  time_init: number;
-  balance: number;
-  distributions: { run: number; time: number; expend: number; transactions: AstatineTx[] }[];
-}
-
-// Get the key file, stored in a Github secret
-const keyfile = JSON.parse(process.env.KEYFILE);
+const keyfile = JSON.parse(fs.readFileSync("C:\\Stuff\\aztec.json").toString());
 
 /**
  * math Σ function
@@ -57,14 +56,14 @@ const dist_total: number = sigma(0, config.emission_period / config.time_interva
 console.log({ config: { dist_curve, dist_total, ...config } });
 
 // save init time & balance on first run
-if (!fs.existsSync('status.json')) {
+if (!fs.existsSync('test_status.json')) {
   const init_status: status = {
     time_init: Date.now(),
     balance: dist_total,
     distributions: [],
   };
 
-  fs.writeFileSync('status.json', JSON.stringify(init_status, null, 2));
+  fs.writeFileSync('test_status.json', JSON.stringify(init_status, null, 2));
 }
 
 let status: status = JSON.parse(fs.readFileSync('status.json').toString());
@@ -93,10 +92,10 @@ async function primeCannon(amount: number, addresses: any, time: number) {
   let allTransactions : AstatineTx[] = [];
   for (let i = 0; i < addresses.length; i++) {
     let transaction : AstatineTx = {
-      id: '',
-      target: '',
-      qty: 0,
-      dataUploaded: 0,
+        id: '',
+        target: '',
+        qty: 0,
+        dataUploaded: 0,
     }
     transaction.target = addresses[i].address ?? addresses[i]
     transaction.qty = addresses[i].weight ? Math.floor((amount * addresses[i].weight) / weightTotal) : Math.floor(amount / addresses.length)
@@ -126,7 +125,6 @@ async function primeCannon(amount: number, addresses: any, time: number) {
     for (const [key, value] of Object.entries(tags)) {
       tx.addTag(key, value.toString());
     }
-
     await arweave.transactions.sign(tx, keyfile);
     transaction.id = tx.id
     allTransactions.push(transaction);
@@ -142,8 +140,8 @@ async function emit(allTransactions: AstatineTx[]) {
   let sentTransactions : AstatineTx[] = [];
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
-      // await arweave.transactions.post(allTransactions[i].id);
-      sentTransactions.push(allTransactions[i]);
+    // await arweave.transactions.post(allTransactions[i].id);
+    sentTransactions.push(allTransactions[i]);
     }
   }
   return sentTransactions;
@@ -174,7 +172,7 @@ async function emit(allTransactions: AstatineTx[]) {
     });
 
     status.balance -= expend;
-    fs.writeFileSync('status.json', JSON.stringify(status, null, 2));
+    fs.writeFileSync('test_status.json', JSON.stringify(status, null, 2));
 
     console.log('Current Status:', status);
   } else {

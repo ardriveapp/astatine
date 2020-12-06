@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "tsc index.ts --outDir dist && node dist/index.js"
+    "start": "tsc index.ts --outDir dist && node dist/index.js",
+    "test": "tsc my_tests.ts --outDir dist && node dist/my_tests.js"
   },
   "dependencies": {
     "arweave": "^1.9.1"
