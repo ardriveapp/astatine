@@ -15,6 +15,7 @@ export interface config {
 
 interface AstatineTx {
   id: string;
+  tx: Transaction;
   target: string;
   qty: number;
   dataUploaded: number;
@@ -94,6 +95,7 @@ async function primeCannon(amount: number, addresses: any, time: number) {
   for (let i = 0; i < addresses.length; i++) {
     let transaction : AstatineTx = {
       id: '',
+      tx: null,
       target: '',
       qty: 0,
       dataUploaded: 0,
@@ -117,7 +119,7 @@ async function primeCannon(amount: number, addresses: any, time: number) {
 
     const tx: Transaction = await arweave.createTransaction(
       {
-        target: addresses[i].address ?? addresses[i],
+        target: transaction.target,
         data: Math.random().toString().slice(-4),
       },
       keyfile
@@ -129,6 +131,7 @@ async function primeCannon(amount: number, addresses: any, time: number) {
 
     await arweave.transactions.sign(tx, keyfile);
     transaction.id = tx.id
+    transaction.tx = tx
     allTransactions.push(transaction);
   }
 
@@ -142,7 +145,7 @@ async function emit(allTransactions: AstatineTx[]) {
   let sentTransactions : AstatineTx[] = [];
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
-      await arweave.transactions.post(allTransactions[i].id);
+      await arweave.transactions.post(allTransactions[i].tx);
       sentTransactions.push(allTransactions[i]);
     }
   }

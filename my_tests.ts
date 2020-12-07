@@ -17,10 +17,11 @@ distributions: { run: number; time: number; expend: number; transactions: Astati
 }
 
 interface AstatineTx {
-    id: string;
-    target: string;
-    qty: number;
-    dataUploaded: number;
+  id: string;
+  tx: Transaction;
+  target: string;
+  qty: number;
+  dataUploaded: number;
 }
 
 const Arweave = require('arweave');
@@ -66,7 +67,7 @@ if (!fs.existsSync('test_status.json')) {
   fs.writeFileSync('test_status.json', JSON.stringify(init_status, null, 2));
 }
 
-let status: status = JSON.parse(fs.readFileSync('status.json').toString());
+let status: status = JSON.parse(fs.readFileSync('test_status.json').toString());
 
 console.log('previous status:', status);
 
@@ -93,6 +94,7 @@ async function primeCannon(amount: number, addresses: any, time: number) {
   for (let i = 0; i < addresses.length; i++) {
     let transaction : AstatineTx = {
         id: '',
+        tx: null,
         target: '',
         qty: 0,
         dataUploaded: 0,
@@ -126,7 +128,8 @@ async function primeCannon(amount: number, addresses: any, time: number) {
       tx.addTag(key, value.toString());
     }
     await arweave.transactions.sign(tx, keyfile);
-    transaction.id = tx.id
+    transaction.id = tx.id;
+    transaction.tx = tx;
     allTransactions.push(transaction);
   }
 
