@@ -6,7 +6,7 @@ A Configurable Automated Profit Sharing Token Distributor.
 
 ## Configuration
 
-You must use the [linear](https://www.desmos.com/calculator/05ofbspddf) or [exponential](https://www.desmos.com/calculator/mvcfqcvtwp) decay calculators to determine the configuration.
+You can use the [linear](https://www.desmos.com/calculator/05ofbspddf) or [exponential](https://www.desmos.com/calculator/mvcfqcvtwp) decay calculators to determine the configuration.  You could also use the [flat] approach, which distributes the same amount for each run.
 
 You need to modify [`config.js`](config.js) according to your requirements. Below are explanations for each of the configuration variables.
 
@@ -16,7 +16,7 @@ You need to modify [`config.js`](config.js) according to your requirements. Belo
 - `initial_emit_amount: Integer` - **(_A_)** The initial amount of tokens to emit
 - `decay_const` - **(_k_)** The decay constant for an exponential decay curve
 
-> Note: Set `decay_const` as `undefined` if you're using linear curve!
+> Note: Set `decay_const` as `undefined` if you're using linear curve, or set to `0` if you are using flat.
 
 ### Token Allocation Function
 
