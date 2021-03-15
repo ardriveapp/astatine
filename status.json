@@ -1,0 +1,12 @@
+{
+  "time_init": 1615837735169,
+  "balance": 255500,
+  "distributions": [
+    {
+      "run": 1,
+      "time": 0,
+      "expend": 700,
+      "transactions": []
+    }
+  ]
+}
