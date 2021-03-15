@@ -2,7 +2,14 @@ name: "decay"
 on:
   schedule:
   - cron: '0 18 * * *'
-
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test Astatine run tags'  
 jobs:
   decay:
     runs-on: ubuntu-latest
