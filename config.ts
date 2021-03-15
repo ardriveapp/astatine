@@ -160,7 +160,7 @@ const config: config = {
   emission_period: 31536000, // E
   time_interval: 86400, // I
   initial_emit_amount: 700  , // A
-  decay_const: undefined,
+  decay_const: 0,
   token_contract_id,
   token_allocations: token_allocation_function(),
 };

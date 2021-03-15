@@ -53,7 +53,10 @@ const dist = {
   flat: () => Math.floor(config.initial_emit_amount)
 };
 
-const dist_curve: string = isNaN(config.decay_const) ? 'linear' : 'exponential';
+let dist_curve: string = isNaN(config.decay_const) ? 'linear' : 'exponential';
+if (config.decay_const === 0) {
+  dist_curve = 'flat'
+}
 const dist_total: number = sigma(0, config.emission_period / config.time_interval, dist[dist_curve]);
 
 console.log({ config: { dist_curve, dist_total, ...config } });
