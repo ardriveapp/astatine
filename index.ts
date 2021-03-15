@@ -50,6 +50,7 @@ const floorTo = (num: number, int: number) => Math.floor(num / int / 1000) * int
 const dist = {
   linear: (x: number) => Math.floor(config.initial_emit_amount - (x * config.time_interval * config.initial_emit_amount) / config.emission_period),
   exponential: (x: number) => Math.floor(config.initial_emit_amount * Math.E ** (-config.decay_const * x * config.time_interval)),
+  flat: () => Math.floor(config.initial_emit_amount)
 };
 
 const dist_curve: string = isNaN(config.decay_const) ? 'linear' : 'exponential';
@@ -104,7 +105,7 @@ async function primeCannon(amount: number, addresses: any, time: number) {
     transaction.qty = addresses[i].weight ? Math.floor((amount * addresses[i].weight) / weightTotal) : Math.floor(amount / addresses.length)
     transaction.dataUploaded = addresses[i].weight
     const tags = {
-      Cannon: 'PST',
+      Cannon: 'ArDrive Usage Rewards',
       Function: dist_curve,
       Completion: (time / config.emission_period) * 100,
       Contract: config.token_contract_id,
@@ -145,7 +146,7 @@ async function emit(allTransactions: AstatineTx[]) {
   let sentTransactions : AstatineTx[] = [];
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
-      await arweave.transactions.post(allTransactions[i].tx);
+      // await arweave.transactions.post(allTransactions[i].tx);
       sentTransactions.push(allTransactions[i]);
     }
   }
@@ -157,7 +158,10 @@ async function emit(allTransactions: AstatineTx[]) {
   const time = floorTo(Date.now() - status.time_init, config.time_interval);
 
   // get the number of token to distribute
-  const expend = dist[dist_curve](time / config.time_interval);
+  // const expend = dist[dist_curve](time / config.time_interval);
+
+  // Manually set the amount to expend
+  const expend = 700;
 
   // create a transaction if conditions meet
   if (time <= config.emission_period && expend > 0 && status.balance > 0) {
