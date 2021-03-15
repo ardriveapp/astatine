@@ -145,6 +145,7 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineItem[]> {
   // lets sort the list based on data amount
   weightedList.sort(dataCompare);
 
+  console.log (weightedList)
   // Trim the list of any users who have not uploaded the minimum
   let minUploadAmount = 1048576 * 1 // 1 MB
   weightedList.forEach((item: AstatineItem) => {
