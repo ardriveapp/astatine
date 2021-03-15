@@ -21,10 +21,17 @@ interface AstatineTx {
   dataUploaded: number;
 }
 
+interface AstatineTxOutput {
+  id: string;
+  target: string;
+  qty: number;
+  dataUploaded: number;
+}
+
 interface status {
   time_init: number;
   balance: number;
-  distributions: { run: number; time: number; expend: number; transactions: AstatineTx[] }[];
+  distributions: { run: number; time: number; expend: number; transactions: AstatineTxOutput[] }[];
 }
 
 // Get the key file, stored in a Github secret
@@ -176,11 +183,22 @@ async function emit(allTransactions: AstatineTx[]) {
     // send the transactions
     let sentTransactions = await emit(transactions);
 
+    // Copy the sent transactions to an output file
+    let sentTransactionOutput : AstatineTxOutput[] = []
+    sentTransactions.forEach((transaction: AstatineTx) => {
+      sentTransactionOutput.push({
+        id: transaction.id,
+        target: transaction.target,
+        qty: transaction.qty,
+        dataUploaded: transaction.dataUploaded,
+      })
+    })
+
     status.distributions.push({
       run: status.distributions.length + 1,
       time,
       expend,
-      transactions: sentTransactions,
+      transactions: sentTransactionOutput,
     });
 
     status.balance -= expend;
