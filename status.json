@@ -1,6 +1,6 @@
 {
   "time_init": 1615837735169,
-  "balance": 251300,
+  "balance": 250600,
   "distributions": [
     {
       "run": 1,
@@ -67,6 +67,19 @@
           "target": "PnGEXqR59q2Jc0jPNVIexvBpj0q0qRBXeVjaLGSvLBs",
           "qty": 700,
           "dataUploaded": 102769857
+        }
+      ]
+    },
+    {
+      "run": 8,
+      "time": 864000,
+      "expend": 700,
+      "transactions": [
+        {
+          "id": "9zDBZMERqsgN29x2RJUaC_AAkgJdxVJ0kYLEWOpQB7I",
+          "target": "PnGEXqR59q2Jc0jPNVIexvBpj0q0qRBXeVjaLGSvLBs",
+          "qty": 700,
+          "dataUploaded": 102847952
         }
       ]
     }
