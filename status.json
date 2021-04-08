@@ -1,6 +1,6 @@
 {
   "time_init": 1615837735169,
-  "balance": 245700,
+  "balance": 245000,
   "distributions": [
     {
       "run": 1,
@@ -145,6 +145,19 @@
       "time": 1900800,
       "expend": 700,
       "transactions": []
+    },
+    {
+      "run": 16,
+      "time": 1987200,
+      "expend": 700,
+      "transactions": [
+        {
+          "id": "zgCPdsIXRzzkZ9gwzYAzq3imfqOtVuKIXdh8kF11fLQ",
+          "target": "PnGEXqR59q2Jc0jPNVIexvBpj0q0qRBXeVjaLGSvLBs",
+          "qty": 700,
+          "dataUploaded": 126940370
+        }
+      ]
     }
   ]
 }
