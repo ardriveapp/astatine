@@ -1,6 +1,6 @@
 {
   "time_init": 1615837735169,
-  "balance": 242900,
+  "balance": 242200,
   "distributions": [
     {
       "run": 1,
@@ -189,6 +189,12 @@
           "dataUploaded": 126329462
         }
       ]
+    },
+    {
+      "run": 20,
+      "time": 2419200,
+      "expend": 700,
+      "transactions": []
     }
   ]
 }
