@@ -1,6 +1,6 @@
 {
   "time_init": 1615837735169,
-  "balance": 241500,
+  "balance": 240800,
   "distributions": [
     {
       "run": 1,
@@ -212,6 +212,19 @@
           "target": "CnRgSw6LX5Au7TCVT6OhdWP8UwoQj4s9V8XL7S-vk-I",
           "qty": 278,
           "dataUploaded": 110587368
+        }
+      ]
+    },
+    {
+      "run": 22,
+      "time": 2592000,
+      "expend": 700,
+      "transactions": [
+        {
+          "id": "bPo-vNUvAl111LXYPjPNgi05NVOWVjzvcye8Tg7ikaQ",
+          "target": "CnRgSw6LX5Au7TCVT6OhdWP8UwoQj4s9V8XL7S-vk-I",
+          "qty": 700,
+          "dataUploaded": 650098130
         }
       ]
     }
