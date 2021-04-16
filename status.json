@@ -1,6 +1,6 @@
 {
   "time_init": 1615837735169,
-  "balance": 240800,
+  "balance": 240100,
   "distributions": [
     {
       "run": 1,
@@ -225,6 +225,37 @@
           "target": "CnRgSw6LX5Au7TCVT6OhdWP8UwoQj4s9V8XL7S-vk-I",
           "qty": 700,
           "dataUploaded": 650098130
+        }
+      ]
+    },
+    {
+      "run": 23,
+      "time": 2678400,
+      "expend": 700,
+      "transactions": [
+        {
+          "id": "Wh_dzVBNsNh9psK47y4YTeEQBMXl1JhePPrEkRxa3vA",
+          "target": "CnRgSw6LX5Au7TCVT6OhdWP8UwoQj4s9V8XL7S-vk-I",
+          "qty": 456,
+          "dataUploaded": 1877605929
+        },
+        {
+          "id": "GHN6Mms96llMOVO-736BbkHqYwDLJ4fI7p_GqZd88zA",
+          "target": "HcgkUjpfnnJQwAL0Jiqq8xCXxekOhswexBxTFtFYdGk",
+          "qty": 188,
+          "dataUploaded": 777109906
+        },
+        {
+          "id": "b54zROI9VseZAktLchtZqjB3HvOl6tfeGAA3NTYRA1E",
+          "target": "2o6qd7AQsZdeXE79ZYLeI92sRuuX1KCDxxDx3aNtQiA",
+          "qty": 37,
+          "dataUploaded": 153114223
+        },
+        {
+          "id": "TN6rylWETN6j4ubwNaKJ-2hlLAOXnJ9noBO_nsgIDuc",
+          "target": "eUxTpnjfUEUePD_cA9aViyN6qYMfIhZIbho8dMWw5AM",
+          "qty": 17,
+          "dataUploaded": 71520874
         }
       ]
     }
