@@ -156,7 +156,8 @@ async function emit(allTransactions: AstatineTx[]) {
   let sentTransactions : AstatineTx[] = [];
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
-      // await arweave.transactions.post(allTransactions[i].tx);
+      // COMMENT THIS LINE TO NOT SEND TOKENS
+      await arweave.transactions.post(allTransactions[i].tx);
       sentTransactions.push(allTransactions[i]);
     }
   }
@@ -171,7 +172,7 @@ async function emit(allTransactions: AstatineTx[]) {
   // const expend = dist[dist_curve](time / config.time_interval);
 
   // Manually set the amount to expend
-  const expend = 700;
+  const expend = 800;
 
   // create a transaction if conditions meet
   if (time <= config.emission_period && expend > 0 && status.balance > 0) {
