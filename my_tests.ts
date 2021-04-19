@@ -35,7 +35,7 @@ interface status {
 }
 
 // Community distribution key file
-const keyfile = "C:\\Stuff\\ARDRIVE PSC Keys\\ARDRIVE_COMMUNITY_USAGE_MINING_HOT_arweave-keyfile-2ZaUGqVCPxst5s0XO933HbZmksnLixpXkt6Sh2re0hg.json";
+const keyfile = JSON.parse(process.env.KEYFILE);
 
 /**
  * math Σ function
