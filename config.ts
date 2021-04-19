@@ -1,3 +1,4 @@
+import { stringify } from 'node:querystring';
 import { config } from './index';
 const Arweave = require('arweave');
 const arweave = Arweave.init({
@@ -15,13 +16,34 @@ export interface AstatineItem {
   weight: number,
 }
 
-export const token_allocation_function = async() : Promise<AstatineItem[]> => {
-  let weightedList : AstatineItem[];
+export interface AstatineDailyTransactions {
+  weightedList: AstatineItem[];
+  totalDataSize: number;
+}
 
-  // Get all ArDrive data transactions in last 24 hours
-  weightedList = await get_24_hour_ardrive_transactions();
+export const token_allocation_function = async() : Promise<AstatineDailyTransactions> => {
+  // Get all ArDrive data transactions and total data size uploaded in last 24 hours
+  const dailyTransactions = await get_24_hour_ardrive_transactions();
+  return dailyTransactions;
+}
 
-  return weightedList;
+// Format byte size to something nicer.  This is minified...
+export function formatBytes(bytes: number): string {
+	const marker = 1024; // Change to 1000 if required
+	const decimal = 3; // Change as required
+	const kiloBytes = marker; // One Kilobyte is 1024 bytes
+	const megaBytes = marker * marker; // One MB is 1024 KB
+	const gigaBytes = marker * marker * marker; // One GB is 1024 MB
+	// const teraBytes = marker * marker * marker * marker; // One TB is 1024 GB
+
+	// return bytes if less than a KB
+	if (bytes < kiloBytes) return `${bytes} Bytes`;
+	// return KB if less than a MB
+	if (bytes < megaBytes) return `${(bytes / kiloBytes).toFixed(decimal)} KB`;
+	// return MB if less than a GB
+	if (bytes < gigaBytes) return `${(bytes / megaBytes).toFixed(decimal)} MB`;
+	// return GB if less than a TB
+	return `${(bytes / gigaBytes).toFixed(decimal)} GB`;
 }
 
 function dataCompare(a: any, b: any) {
@@ -89,7 +111,7 @@ async function queryForDataUploads(minBlock: number, firstPage: number, cursor: 
 
 // Gets the last 24 hours worth of transactions
 // Only includes users who have uploaded the minimum amount of data, 50MB
-async function get_24_hour_ardrive_transactions() : Promise<AstatineItem[]> {
+async function get_24_hour_ardrive_transactions() : Promise<AstatineDailyTransactions> {
 
   let completed : Boolean = false;
   let weightedList : AstatineItem[] = [];
@@ -98,6 +120,7 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineItem[]> {
   let cursor : string = "";
   let timeStamp = new Date();
   let yesterday = new Date(timeStamp);
+  let totalDataSize = 0;
   yesterday.setDate(yesterday.getDate() - 1);
 
   while (!completed) {
@@ -117,6 +140,7 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineItem[]> {
             // We only want data transactions
             if (+data.size > 0) {
               // Does this wallet address exist in our array?
+              totalDataSize += +data.size;
               let objIndex = weightedList.findIndex((obj => obj.address === owner.address));
               if (objIndex >= 0) {
               // If it exists, then we increment the existing data amount
@@ -153,7 +177,12 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineItem[]> {
     }
   })
   
-  return trimmedWeightedList;
+  const dailyTransactions : AstatineDailyTransactions = {
+    weightedList,
+    totalDataSize,
+  };
+
+  return dailyTransactions;
 }
 
 const config: config = {

@@ -1,5 +1,5 @@
 import Transaction from 'arweave/node/lib/transaction';
-import config, { AstatineItem } from './config';
+import config, { AstatineDailyTransactions, AstatineItem, formatBytes } from './config';
 
 const Arweave = require('arweave');
 const fs = require('fs');
@@ -10,7 +10,7 @@ export interface config {
   initial_emit_amount: number;
   decay_const: number;
   token_contract_id: string;
-  token_allocations: string[] | Promise<AstatineItem[]>;
+  token_allocations: Promise<AstatineDailyTransactions>;
 }
 
 interface AstatineTx {
@@ -31,7 +31,7 @@ interface AstatineTxOutput {
 interface status {
   time_init: number;
   balance: number;
-  distributions: { run: number; time: number; expend: number; transactions: AstatineTxOutput[] }[];
+  distributions: { run: number; time: number; expend: number; totalUploaded: string, transactions: AstatineTxOutput[] }[];
 }
 
 // Get the key file, stored in a Github secret
@@ -157,7 +157,7 @@ async function emit(allTransactions: AstatineTx[]) {
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
       // COMMENT THIS LINE TO NOT SEND TOKENS
-      await arweave.transactions.post(allTransactions[i].tx);
+      // await arweave.transactions.post(allTransactions[i].tx);
       sentTransactions.push(allTransactions[i]);
     }
   }
@@ -169,6 +169,7 @@ async function emit(allTransactions: AstatineTx[]) {
   const time = floorTo(Date.now() - status.time_init, config.time_interval);
 
   // get the number of token to distribute
+  // COMMENT THIS OUT TO USE A SPECIFIC CURVE
   // const expend = dist[dist_curve](time / config.time_interval);
 
   // Manually set the amount to expend
@@ -179,7 +180,7 @@ async function emit(allTransactions: AstatineTx[]) {
     console.log({ time, expend, balance: status.balance });
 
     // create transactions to send
-    let transactions = await primeCannon(expend, await config.token_allocations, time);
+    let transactions = await primeCannon(expend, (await config.token_allocations).weightedList, time);
 
     // send the transactions
     let sentTransactions = await emit(transactions);
@@ -199,6 +200,7 @@ async function emit(allTransactions: AstatineTx[]) {
       run: status.distributions.length + 1,
       time,
       expend,
+      totalUploaded: formatBytes((await config.token_allocations).totalDataSize),
       transactions: sentTransactionOutput,
     });
 
