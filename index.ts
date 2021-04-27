@@ -31,7 +31,7 @@ interface AstatineTxOutput {
 interface status {
   time_init: number;
   balance: number;
-  distributions: { run: number; time: number; expend: number; totalUploaded: string, transactions: AstatineTxOutput[] }[];
+  distributions: { run: number; time: number; expend: number; totalRecipients: number, totalUploaded: string, transactions: AstatineTxOutput[] }[];
 }
 
 // Get the key file, stored in a Github secret
@@ -200,6 +200,7 @@ async function emit(allTransactions: AstatineTx[]) {
       run: status.distributions.length + 1,
       time,
       expend,
+      totalRecipients: sentTransactions.length,
       totalUploaded: formatBytes((await config.token_allocations).totalDataSize),
       transactions: sentTransactionOutput,
     });

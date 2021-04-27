@@ -188,7 +188,7 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineDailyTransac
 const config: config = {
   emission_period: 31536000, // E
   time_interval: 86400, // I
-  initial_emit_amount: 700  , // A
+  initial_emit_amount: 800  , // A
   decay_const: 0,
   token_contract_id,
   token_allocations: token_allocation_function(),
