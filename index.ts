@@ -167,6 +167,8 @@ async function emit(allTransactions: AstatineTx[]) {
 // start distribution
 (async () => {
   const startTime = new Date();
+  startTime.setMinutes(0);
+  startTime.setHours(16);
   const time = floorTo(Date.now() - status.time_init, config.time_interval);
 
   // get the number of token to distribute
