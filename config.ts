@@ -1,4 +1,3 @@
-import { stringify } from 'node:querystring';
 import { config } from './index';
 const Arweave = require('arweave');
 const arweave = Arweave.init({
@@ -10,6 +9,10 @@ const arweave = Arweave.init({
 
 // The ArDrive Profit Sharing Community Contract
 const token_contract_id : string = "-8A6RexFkpfWwuyVO98wzSFZh0d6VJuI-buTJvlwOJQ";
+
+// Set the ardrive primary and backup gateways
+const primaryGraphQLUrl = 'https://arweave.net/graphql';
+const backupGraphQLUrl = 'https://arweave.dev/graphql';
 
 export interface AstatineItem {
   address: string,
@@ -57,7 +60,7 @@ function dataCompare(a: any, b: any) {
 }
 
 // Creates a GraphQL Query to search for all ArDrive Data transactions and requests it from the primary Arweave gateway
-async function queryForDataUploads(minBlock: number, firstPage: number, cursor: string) {
+async function queryForDataUploads(minBlock: number, firstPage: number, cursor: string, graphQLUrl: string) {
   try {
   const query = {
     query: `query {
@@ -105,7 +108,11 @@ async function queryForDataUploads(minBlock: number, firstPage: number, cursor: 
   return transactions;
 } catch (err) {
   console.log (err)
-  console.log ("uh oh cant query")
+  console.log ("Error querying for data uploads.")
+  if (graphQLUrl === primaryGraphQLUrl) {
+    console.log ("Trying the backup graphQL url")
+    return await queryForDataUploads(minBlock, firstPage, cursor, backupGraphQLUrl);
+  }
 }
 }
 
@@ -127,7 +134,7 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineDailyTransac
 
   while (!completed) {
     // Create the query to search for all ardrive transactions.
-    let transactions = await queryForDataUploads(0, firstPage, cursor);
+    let transactions = await queryForDataUploads(0, firstPage, cursor, primaryGraphQLUrl);
     const { edges } = transactions;
     edges.forEach((edge: any) => {
       cursor = edge.cursor;

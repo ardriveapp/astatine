@@ -31,7 +31,7 @@ interface AstatineTxOutput {
 interface status {
   time_init: number;
   balance: number;
-  distributions: { run: number; time: number; expend: number; totalRecipients: number, totalUploaded: string, transactions: AstatineTxOutput[] }[];
+  distributions: { run: number; startTime: Date, time: number; expend: number; totalRecipients: number, totalUploaded: string, transactions: AstatineTxOutput[] }[];
 }
 
 // Get the key file, stored in a Github secret
@@ -166,6 +166,7 @@ async function emit(allTransactions: AstatineTx[]) {
 
 // start distribution
 (async () => {
+  const startTime = new Date();
   const time = floorTo(Date.now() - status.time_init, config.time_interval);
 
   // get the number of token to distribute
@@ -198,6 +199,7 @@ async function emit(allTransactions: AstatineTx[]) {
 
     status.distributions.push({
       run: status.distributions.length + 1,
+      startTime,
       time,
       expend,
       totalRecipients: sentTransactions.length,
