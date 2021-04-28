@@ -119,9 +119,11 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineDailyTransac
   let firstPage : number = 100; // Max size of query for GQL
   let cursor : string = "";
   let timeStamp = new Date();
+  timeStamp.setMinutes(0);
+  timeStamp.setHours(12);
   let yesterday = new Date(timeStamp);
   let totalDataSize = 0;
-  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.setDate(timeStamp.getDate() - 1);
 
   while (!completed) {
     // Create the query to search for all ardrive transactions.
