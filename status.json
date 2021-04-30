@@ -1,6 +1,6 @@
 {
   "time_init": 1618677843812,
-  "balance": 242600,
+  "balance": 241800,
   "distributions": [
     {
       "run": 1,
@@ -1354,6 +1354,76 @@
           "target": "lWmSCTyRJ7UjADArLAbQ_THha7hANwgdlpQEeX0Chq0",
           "qty": 1,
           "dataUploaded": 8452191
+        }
+      ]
+    },
+    {
+      "run": 14,
+      "startTime": "2021-04-30T16:42:56.655Z",
+      "time": 1036800,
+      "expend": 800,
+      "totalRecipients": 10,
+      "totalUploaded": "7.238 GB",
+      "transactions": [
+        {
+          "id": "AbSKRgWVkG2qY4-YDry_93n5O55Ijm8VkZLUBsZJlQ8",
+          "target": "fcMxhaBLYpFEzS4eWqsazA27IVPh738Kh6d6VXSclcA",
+          "qty": 425,
+          "dataUploaded": 4137078989
+        },
+        {
+          "id": "G-kLIpwt1cJBxKzsEu9_RVo2aV9c1Z38OEN9vudtTuE",
+          "target": "t8i_MHAPl-mwDSthhyBAwGWGrI-_foX5SZV_h9f6Vrc",
+          "qty": 194,
+          "dataUploaded": 1890556711
+        },
+        {
+          "id": "-ZGkkIlhv6MfV99Uw5XWUfOlx6xNBKJww07BR0oZubM",
+          "target": "YU6yEKGM6aoKi_MSfJr7rdaGRQ4oq2ka5SOzOhjLW7g",
+          "qty": 104,
+          "dataUploaded": 1013476485
+        },
+        {
+          "id": "rGLe1VivcdZinj15my8Yrd42Jbi3yiIbX_hVKF6SMgM",
+          "target": "j-Jvcg4_ZJ3BSANoJi-ixLWfxe3-nguaxNyg0lYy8P0",
+          "qty": 34,
+          "dataUploaded": 331991475
+        },
+        {
+          "id": "w7E1t5Q7wVmyyYVnwOAx949zKENnvVo06b6e72wNEbw",
+          "target": "h0zdcklfctYQoKqneI1mvwUfgLja5Ael-0X3ogxzbf4",
+          "qty": 8,
+          "dataUploaded": 79239228
+        },
+        {
+          "id": "tvN1XhKf5V3FMAXafopOvz2NsDwEm8YfPXBUveLfna8",
+          "target": "FgqixQSdScWmFY4O3dvm04e-DGM0Z8bWyyW-pDmbyGk",
+          "qty": 7,
+          "dataUploaded": 74825518
+        },
+        {
+          "id": "eAw6XkieeI3-M-XfZ5sFpnXcV3jDp0MojT536VhkEXs",
+          "target": "r6YGVz6C6yXmSa1m4psXad27VrSpo0YH7qZT7Bia3_s",
+          "qty": 7,
+          "dataUploaded": 69058960
+        },
+        {
+          "id": "Fd07NNGoxr68_CRDv3G83ZHMfU_Znyf7nKFHv-ttTcQ",
+          "target": "pcXbai9GoRbtBWrAgb8RkyEuDXYy5DBn0rMNfg6azGg",
+          "qty": 6,
+          "dataUploaded": 65373305
+        },
+        {
+          "id": "nQjr5127CZ4rMxH5o9NfWBY87nFSf2Q6F-Byyexe62o",
+          "target": "dvE16402mxMLP7iopFpFLzcwd2NQ-ElQTGKZFjDqF8Y",
+          "qty": 5,
+          "dataUploaded": 54794616
+        },
+        {
+          "id": "mSoqT3JHz1iTlKgXzDeM8PG1_sfIYp9YMPJHVnEWji4",
+          "target": "UR4osFpwOpqmkHqpe9L09FFlE71Vo4TAbMX9YITcq8k",
+          "qty": 5,
+          "dataUploaded": 51112178
         }
       ]
     }
