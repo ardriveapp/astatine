@@ -157,7 +157,7 @@ async function emit(allTransactions: AstatineTx[]) {
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
       // COMMENT THIS LINE TO NOT SEND TOKENS
-      await arweave.transactions.post(allTransactions[i].tx);
+      // await arweave.transactions.post(allTransactions[i].tx);
       sentTransactions.push(allTransactions[i]);
     }
   }
@@ -167,6 +167,10 @@ async function emit(allTransactions: AstatineTx[]) {
 // start distribution
 (async () => {
   const startTime = new Date();
+
+  // TEMPORARILY USED TO RUN IN THE PAST
+  startTime.setDate(startTime.getTime() - 1);
+
   const time = floorTo(Date.now() - status.time_init, config.time_interval);
 
   // get the number of token to distribute

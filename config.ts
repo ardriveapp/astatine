@@ -126,6 +126,9 @@ async function get_24_hour_ardrive_transactions() : Promise<AstatineDailyTransac
   let firstPage : number = 100; // Max size of query for GQL
   let cursor : string = "";
   let timeStamp = new Date();
+
+  // TEMPORARILY USED TO RUN IN THE PAST
+  timeStamp.setDate(timeStamp.getDate() - 1)
   
   // This will force the job to run at 16:00 UTC (or 12:00pm EST)
   timeStamp.setMinutes(0);
