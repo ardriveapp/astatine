@@ -169,7 +169,7 @@ async function emit(allTransactions: AstatineTx[]) {
   const startTime = new Date();
 
   // TEMPORARILY USED TO RUN IN THE PAST
-  startTime.setDate(startTime.getTime() - 1);
+  startTime.setDate(startTime.getDate() - 1);
 
   const time = floorTo(Date.now() - status.time_init, config.time_interval);
 

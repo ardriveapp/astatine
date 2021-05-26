@@ -3234,40 +3234,6 @@
           "dataUploaded": 667200765
         }
       ]
-    },
-    {
-      "run": 39,
-      "startTime": null,
-      "time": 3283200,
-      "expend": 800,
-      "totalRecipients": 4,
-      "totalUploaded": "18.442 GB",
-      "transactions": [
-        {
-          "id": "CSKidEDNKeAmZws0XzzLSbDcPsVFIR819FaBf6jC2_A",
-          "target": "yY5nWcCCwNwcaWo7lgIgZxgcGKvZrDfGYpN_bjefkYo",
-          "qty": 392,
-          "dataUploaded": 9716402436
-        },
-        {
-          "id": "hX-tGzI0GzFbkyBx_sVeU5aOpiRZ1ceMUCCRtJc3-5M",
-          "target": "uCiNuxCIVbWPzRXQc4Lk8pYU_KsWFWd6USkvmIihpB8",
-          "qty": 332,
-          "dataUploaded": 8234042067
-        },
-        {
-          "id": "0HPv5PQGel30WEALWQ0A2FMhARaIsO8j7tAFbjx6-QM",
-          "target": "YU6yEKGM6aoKi_MSfJr7rdaGRQ4oq2ka5SOzOhjLW7g",
-          "qty": 47,
-          "dataUploaded": 1169306261
-        },
-        {
-          "id": "T8ejGUd_ugQPPnPxGwoSsgxvx-Efmzls33IFR9Vqxjc",
-          "target": "RBZWmzRNaYwr3_cd0849gxWbqze4QQ-BgTQXq3aI4ZU",
-          "qty": 26,
-          "dataUploaded": 667200765
-        }
-      ]
     }
   ]
 }
