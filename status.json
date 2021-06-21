@@ -1,6 +1,6 @@
 {
   "time_init": 1618677843812,
-  "balance": 199400,
+  "balance": 198600,
   "distributions": [
     {
       "run": 1,
@@ -4546,6 +4546,46 @@
           "target": "Bb-QtRUnU2yR_suJT3SnL3dVecQ9cQaT1J0E5oURuSI",
           "qty": 3,
           "dataUploaded": 52653341
+        }
+      ]
+    },
+    {
+      "run": 66,
+      "startTime": "2021-06-21T16:35:06.645Z",
+      "time": 5529600,
+      "expend": 800,
+      "totalRecipients": 5,
+      "totalUploaded": "14.024 GB",
+      "transactions": [
+        {
+          "id": "I-ORzAuijCzNBdHTeO9sjP30Slh4AK_TGtfQgHQTmNU",
+          "target": "uCiNuxCIVbWPzRXQc4Lk8pYU_KsWFWd6USkvmIihpB8",
+          "qty": 352,
+          "dataUploaded": 6627453535
+        },
+        {
+          "id": "4OAtev6VUwcvaWLVZ3yA9MbdEOgHYoYRTaYuG83G8ks",
+          "target": "rsPAeT0pOAIlrpsYxBZ8qm_HPDxg5sbTzKz3uzw47lk",
+          "qty": 304,
+          "dataUploaded": 5726342777
+        },
+        {
+          "id": "hPcl_wseUHc9D57x5LO5KrVH5orK5gM9reFbspwN0SU",
+          "target": "yY5nWcCCwNwcaWo7lgIgZxgcGKvZrDfGYpN_bjefkYo",
+          "qty": 105,
+          "dataUploaded": 1981014054
+        },
+        {
+          "id": "4T4I22N5hUSBH1J77HamyoYjV5Yjkdwt6H3S5TBHOO4",
+          "target": "YU6yEKGM6aoKi_MSfJr7rdaGRQ4oq2ka5SOzOhjLW7g",
+          "qty": 33,
+          "dataUploaded": 634929194
+        },
+        {
+          "id": "P4ryBRFPo1C1D1o4DfXFQxM7hwQGAAV7DVjfcC-o8-I",
+          "target": "pcXbai9GoRbtBWrAgb8RkyEuDXYy5DBn0rMNfg6azGg",
+          "qty": 4,
+          "dataUploaded": 87121382
         }
       ]
     }
