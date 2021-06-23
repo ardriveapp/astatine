@@ -1,6 +1,6 @@
 {
   "time_init": 1618677843812,
-  "balance": 197800,
+  "balance": 197000,
   "distributions": [
     {
       "run": 1,
@@ -4632,6 +4632,58 @@
           "target": "93bYny8DJCAh0-cxy_sDge6JeZSO9_2HafJXWlc-Nkk",
           "qty": 7,
           "dataUploaded": 186571383
+        }
+      ]
+    },
+    {
+      "run": 68,
+      "startTime": "2021-06-23T16:27:06.024Z",
+      "time": 5702400,
+      "expend": 800,
+      "totalRecipients": 7,
+      "totalUploaded": "14.468 GB",
+      "transactions": [
+        {
+          "id": "vD8qE7siNWQNnG-qcgPStpPnffMRT2XCZ0yHYCsZtHg",
+          "target": "uCiNuxCIVbWPzRXQc4Lk8pYU_KsWFWd6USkvmIihpB8",
+          "qty": 367,
+          "dataUploaded": 7130484812
+        },
+        {
+          "id": "7YntwpexYQK7AWD30jpLs2pCl7q2hXH_NqVyi1xSQSw",
+          "target": "rsPAeT0pOAIlrpsYxBZ8qm_HPDxg5sbTzKz3uzw47lk",
+          "qty": 228,
+          "dataUploaded": 4428624740
+        },
+        {
+          "id": "2eTldNX2_iCFDdmys70XIVBZptz80pIgYaNU0K2Yc4A",
+          "target": "yY5nWcCCwNwcaWo7lgIgZxgcGKvZrDfGYpN_bjefkYo",
+          "qty": 68,
+          "dataUploaded": 1320676131
+        },
+        {
+          "id": "gDvAFg-5M04tQfNt5kYlTfcxVh9hB3hwGTGfa5X3jGo",
+          "target": "YjVQ8x0huH5fVYeFdFksYNPrU9tCsiorsuBl91W-SPc",
+          "qty": 60,
+          "dataUploaded": 1175927850
+        },
+        {
+          "id": "LC3Myq94IRzqP2G6wFVALpxsrqK-0ARmqx0zDwOYkgM",
+          "target": "PXGSmNwLqnUDBFBRQSzhyo2MxZ_5Vr1ebeZV59FE0Q4",
+          "qty": 55,
+          "dataUploaded": 1069028457
+        },
+        {
+          "id": "XlEYdDzC-jsXsd-7UdoElADSXW6Se0KfwUJlrYoHadE",
+          "target": "93bYny8DJCAh0-cxy_sDge6JeZSO9_2HafJXWlc-Nkk",
+          "qty": 19,
+          "dataUploaded": 385183691
+        },
+        {
+          "id": "DYfIbAByIh9tiCXYvz4XT6Ye1hNjpYLGTcl6hQB5Dx4",
+          "target": "g5fNC0RPymmL-h17jSyJV5JGO_yzqTORrONDfK2qpOI",
+          "qty": 1,
+          "dataUploaded": 22503249
         }
       ]
     }
