@@ -1,6 +1,6 @@
 {
   "time_init": 1618677843812,
-  "balance": 194600,
+  "balance": 193800,
   "distributions": [
     {
       "run": 1,
@@ -4846,6 +4846,64 @@
           "target": "Ii5wAMlLNz13n26nYY45mcZErwZLjICmYd46GZvn4ck",
           "qty": 1,
           "dataUploaded": 11706841
+        }
+      ]
+    },
+    {
+      "run": 72,
+      "startTime": "2021-06-27T16:32:36.009Z",
+      "time": 6048000,
+      "expend": 800,
+      "totalRecipients": 8,
+      "totalUploaded": "13.805 GB",
+      "transactions": [
+        {
+          "id": "4YNDumiFSVjXdF_nqF2U6_Kg-ns_FvVJYKiTH7iGkMk",
+          "target": "yY5nWcCCwNwcaWo7lgIgZxgcGKvZrDfGYpN_bjefkYo",
+          "qty": 264,
+          "dataUploaded": 4905368150
+        },
+        {
+          "id": "igoH7CcLfLicvFsM3O13LiKD0kHWVb2JllFr8hAO8M8",
+          "target": "uCiNuxCIVbWPzRXQc4Lk8pYU_KsWFWd6USkvmIihpB8",
+          "qty": 237,
+          "dataUploaded": 4392745105
+        },
+        {
+          "id": "vrlzlNwWZ-dfAyFXdzFE3AgN1jD3_R-xkuvzrVLwIrg",
+          "target": "KUX71QIY3ES3Aaxpo8OOISM1W2U8-zE4avbhSsQSPgU",
+          "qty": 152,
+          "dataUploaded": 2821614234
+        },
+        {
+          "id": "ci3AlaY5g8qBiNujewxGj8yiev3dD0sCzpcIhlA1YSk",
+          "target": "TecxIaWa6mILFZpLcymT513NGTmCP9QSWNO2OMOwi08",
+          "qty": 102,
+          "dataUploaded": 1890934836
+        },
+        {
+          "id": "ft10-Uwyp8T8SoRwRnCUl1X2mUCw9D2nPTqwgEEIKWY",
+          "target": "XIAsjsPC01wttnoMp0lVmC-FOxyB-7uwo8qgHTDEQLQ",
+          "qty": 36,
+          "dataUploaded": 674202030
+        },
+        {
+          "id": "I_cPOxwswk5rsXiPw9MrnllImMpj5BohijBFAJfOuro",
+          "target": "rsPAeT0pOAIlrpsYxBZ8qm_HPDxg5sbTzKz3uzw47lk",
+          "qty": 3,
+          "dataUploaded": 69573445
+        },
+        {
+          "id": "ycmIe4Hl_HF8cGd-nMptKKKwYuhv_RKE_EAOySAEGLA",
+          "target": "g5fNC0RPymmL-h17jSyJV5JGO_yzqTORrONDfK2qpOI",
+          "qty": 1,
+          "dataUploaded": 32457470
+        },
+        {
+          "id": "0qRjRd7hdYkaZvXgWCk-HkozZjZ0VQnxEeISMD78sYM",
+          "target": "6JHLflIgYm7pBhJ4eJbeIsJFBK4-K_aHmU1qxAJ-540",
+          "qty": 1,
+          "dataUploaded": 27790646
         }
       ]
     }
