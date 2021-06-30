@@ -157,7 +157,7 @@ async function emit(allTransactions: AstatineTx[]) {
   for (let i = 0; i < allTransactions.length; i++) {
     if (allTransactions[i].qty !== 0) {
       // COMMENT THIS LINE TO NOT SEND TOKENS
-      // await arweave.transactions.post(allTransactions[i].tx);
+      await arweave.transactions.post(allTransactions[i].tx);
       // COMMENT THE ABOVE LINE TO NOT SEND TOKENS
       sentTransactions.push(allTransactions[i]);
     }
